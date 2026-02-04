@@ -1,0 +1,21 @@
+import java.util.*;
+
+public class Solution {
+    public int[] solution(int []arr) {
+        int temp = 10;
+        int answerIdx = 0;
+        int[] answer = new int[arr.length];
+
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] != temp){
+                answer[answerIdx++] = arr[i];
+                temp = arr[i];
+            }
+        }
+        
+        // Arrays.copyOfRange(복사할 배열, 시작 idx, 종료 idx)
+        // 시작 인덱스는 복사시 포함되나, 종료 인덱스는 포함되지 않는다
+        return Arrays.copyOfRange(answer, 0, answerIdx);
+
+    }
+}
