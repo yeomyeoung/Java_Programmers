@@ -1,0 +1,27 @@
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        boolean[] isHeComplete = new boolean[participant.length];
+        boolean[] isHeHaveSameName = new boolean[completion.length];
+
+        // par이 com보다 1 많음
+        // 원소 하나씩 비교하면 너무 비효율적인가? 최대 10만명이긴 함..
+        // 동명이인이 존재 가능함 <- 이게 변수인듯
+
+        for(int i = 0; i < participant.length; i++){
+            for(int j = 0; j < completion.length; j++){
+                if(participant[i].equals(completion[j]) && isHeHaveSameName[j] == false){
+                    isHeComplete[i] = true;
+                    isHeHaveSameName[j] = true;
+                };
+            }
+        }
+
+        for(int k = 0; k < participant.length; k++){
+            if (isHeComplete[k] == false) answer = participant[k];
+        }
+
+
+        return answer;
+    }
+}
