@@ -1,0 +1,34 @@
+import java.util.*;
+
+class Solution {
+    public int solution(int[] nums) {
+        int answer = 0;
+        int numsCount = 0;
+        int compare = 0;
+        int choiceCount = nums.length/2;
+        Arrays.sort(nums);
+
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] != compare){
+                compare = nums[i];
+                numsCount++;
+            }
+        }
+        return Math.min(choiceCount, numsCount);
+
+        // if(choiceCount != numsCount){
+        //     return choiceCount
+        // }
+        // return numsCount;
+
+        // 만약 nums.length / 2 가 숫자 종류보다 작다면 => 그대로 숫자종류 출력
+        // nums.length / 2 가 숫자 종류와 같거나 크다면 => nums.length / 2 값 출력
+        
+
+        // 선택 방법의 개수는 최대 nums/2 임.
+        // sort 해서 진행하면 되지 않을까 싶음.
+        // 그럼 배열에 중복되지 않는 수를 넣어야 하는거임?
+
+        // return answer;
+    }
+}
